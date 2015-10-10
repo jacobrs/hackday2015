@@ -41,6 +41,7 @@
 
     public static function insertSurvey($name, $options){
       global $db;
+      $name = "#".$name;
       $stmt = $db->prepare("INSERT INTO `Surveys` (`SurveyTag`) VALUES (?);");
       $stmt->bind_param("s", $name);
       $stmt->execute();

@@ -52,33 +52,10 @@
           <button class="btn btn-default removeButton" id="remove_button" type="button">-</button>
         </span>
       </div>
-      <div id="tweet_button">
-        <script>
-          var url_string = title;
-          url_string += "&";
-          for(var i = 0; i <= options.length - 1; i++) {
-            url_string += options[i];
-            if(i < options.length)
-              url_string += "&";
-          }
-          console.log(url_string);
-        </script>
-        
-        <a href="https://twitter.com/intent/tweet" class="twitter-hashtag-button" id="tweet" data-size="large" data-related="georgeisking">Tweet #Surveys</a>
-        <script>
-          !function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
-            if(!d.getElementById(id)) {
-              js = d.createElement(s);
-              js.id = id;
-              js.src = p + '://platform.twitter.com/widgets.js';
-              fjs.parentNode.insertBefore(js, fjs);
-            }
-          }(document, 'script', 'twitter-wjs');
-        </script>
-      </div>
+      <button type="button" id="add" name="add" onclick="document.getElementById('survey_form').submit();"
+        class="btn btn-primary navbar-btn">Start Survey!</button>
     </form>
-    
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

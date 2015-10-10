@@ -4,9 +4,11 @@
   global $hashtagRegex;
   $hashtagRegex = "/^[a-zA-Z0-9]*$/";
 
+  var_dump($_POST["options"]);
+  die();
+
   if(isset($_POST["title"]) && isset($_POST["options"]) &&
-    strlen($_POST["title"]) > 1 &&
-    areHashtags($_POST["title"], $_POST["options"])){
+    strlen($_POST["title"]) > 0){
 
     // include the connection to the database
     require_once("../config/connect.php");
@@ -14,8 +16,14 @@
     require_once("../classes/survey.php");
     global $db;
 
+    var_dump($_POST["options"]);
+    die();
+
     if(validateOptions($_POST["options"]) && preg_match($hashtagRegex, substr($_POST["title"], 1))){
-      Survey::insertSurvey($_POST["title"], $_POST["options"]);
+        $id = Survey::insertSurvey($_POST["title"], $_POST["options"]);
+        $db->close();
+        header("location: ../results/?survey=".$id);
+        die();
         $return = ["success" => "inserted survey"];
         echo json_encode($return);
     }else{

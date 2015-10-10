@@ -12,6 +12,7 @@
 
     public static function insertOption($tag, $surveyID){
       global $db;
+      $tag = "#".$tag;
       $stmt = $db->prepare("INSERT INTO `Options` (`Name`, `SurveyID`) VALUES (?, ?);");
       $stmt->bind_param("si", $tag, $surveyID);
       $stmt->execute();

@@ -1,14 +1,13 @@
+var MAX_OPTIONS = 5;
+var numOptions = 1;
 $(document).ready(function(){
-    var MAX_OPTIONS = 5;
-    var numOptions = 1;
-
     $('#survey_form')
         // add button click handler
         .on('click', '.addButton', function() {
-            $('#option' + (numOptions + 1)).attr('name', 'options[' + numOptions + ']');
             if(numOptions < MAX_OPTIONS) {
+                $('#option' + (numOptions + 1)).attr('name', 'options[' + numOptions + ']');
                 var $template = $('#option_template'),
-                $clone    = $template
+                $clone = $template
                                 .clone()
                                 .removeClass('hide')
                                 .removeAttr('id')
