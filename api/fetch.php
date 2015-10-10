@@ -59,14 +59,18 @@
     // close curl resource to free up system resources
     curl_close($ch);
 
-    $e = curl_init();
-    curl_setopt($e, CURLOPT_URL, "GET https://api.twitter.com/1.1/application/rate_limit_status.json?resources=search");
-    curl_setopt($e, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($e, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$bearer));
-    $output = curl_exec($e);
-    echo $output;
+    foreach($survey->options as $o){
+      $opt = urlencode($o->name);
+      $e = curl_init();
+      curl_setopt($e, CURLOPT_URL, "https://api.twitter.com/1.1/search/tweets.json?include_entities=false&q=".urlencode($survey->name).$opt."&count=100");
+      curl_setopt($e, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($e, CURLOPT_HTTPHEADER, array('Host: api.twitter.com', 'GET /search/tweets HTTP/1.1',
+        'Content-type: application/x-www-form-urlencoded;charset=UTF-8', 'Authorization: Bearer '.$token));
+      $output = curl_exec($e);
+      echo $output;
 
-    curl_close($e);
+      curl_close($e);
+    }
   }
 
 ?>
