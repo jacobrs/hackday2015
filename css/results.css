@@ -1,0 +1,59 @@
+body{
+  background-color:#eeeeee;
+  text-align: center;
+}
+
+h1{
+  color:#333333;
+}
+
+#title{
+  padding-top:2em;
+}
+
+#linkHome{
+  width:auto;
+  margin-top:3em;
+  color:rgb(28, 126, 255);
+}
+
+.navbar {
+	border-radius: 0;
+	background-color: #333;
+	border-color: transparent;
+}
+
+#battlebar-title{
+  margin-top:4em;
+}
+
+#battlebar{
+  margin:0px auto;
+  margin-top:2em;
+  margin-bottom:2em;
+  max-width: 900px;
+  min-width: 200px;
+}
+
+#color1{
+  background-color:#5e5e5e
+}
+#color2{
+  background-color:#ff46f2
+}
+#color3{
+  background-color:#d9534f;
+}
+#color4{
+  background-color:#f0ad4e;
+}
+#color5{
+  background-color:#5bc0de;
+}
+#color6{
+  background-color:#5cb85c;
+}
+
+#tweet-btn{
+  margin-top:2em !important;
+}

@@ -15,7 +15,7 @@
 
     $survey = new Survey($_GET["survey"]);
     if($survey->name !== null){
-      fetchFromAPI($survey);
+      echo json_encode(fetchFromAPI($survey));
     }else{
       $return = ["error" => "survey not found"];
       echo json_encode($return);
@@ -30,6 +30,7 @@
   }
 
   function fetchFromAPI($survey){
+    $stats = array();
     global $token;
     global $twitter_consumer;
     global $twitter_secret;
@@ -67,10 +68,14 @@
       curl_setopt($e, CURLOPT_HTTPHEADER, array('Host: api.twitter.com', 'GET /search/tweets HTTP/1.1',
         'Content-type: application/x-www-form-urlencoded;charset=UTF-8', 'Authorization: Bearer '.$token));
       $output = curl_exec($e);
-      echo $output;
+      $results = json_decode($output);
+
+      $stats[$o->name] = count($results->statuses);
 
       curl_close($e);
     }
+
+    return $stats;
   }
 
 ?>
