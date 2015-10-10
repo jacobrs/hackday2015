@@ -8,7 +8,8 @@
 
     public function __construct($surveyID){
       global $db;
-      $stmt = $db->prepare("SELECT `SurveyName` FROM `Surveys` WHERE `SurveyID` = ?;");
+      $this->id = $surveyID;
+      $stmt = $db->prepare("SELECT `SurveyTag` FROM `Surveys` WHERE `SurveyID` = ?;");
       $stmt->bind_param("i", $surveyID);
       if($stmt->execute()){
         $stmt->bind_result($name);
