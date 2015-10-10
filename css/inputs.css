@@ -1,0 +1,38 @@
+body {
+	background-color: #eeeeee;
+}
+
+.navbar {
+	border-radius: 0;
+	background-color: #333;
+	border-color: transparent;
+}
+
+#logo {
+	color: #FFFFFF;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 2em;
+	color: #333;
+	vertical-align: center;
+}
+
+#header {
+	padding-top: 2em;
+}
+
+form {
+	width: 25%;
+	height: 50%;
+	margin: 0 auto;
+}
+
+.input-group {
+	margin-bottom: 2em;
+}
+
+#tweet_button {
+	text-align: center;
+}

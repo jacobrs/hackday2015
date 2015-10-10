@@ -11,7 +11,7 @@
     <link href="libs/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/inputs.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,12 +25,14 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="">
-            <b style="color: #FFFFFF">#Surveys</b>
+            <b id="logo">#Surveys</b>
           </a>
         </div>
       </div>
     </nav>
-    <h1>Make a twitter survey</h1>
+    <div id="header">
+      <h1>Make a twitter survey</h1>
+    </div>
     <form method="POST" action="api/save.php" id="survey_form">
       <div class="input-group">
         <span class="input-group-addon">#</span>
@@ -50,19 +52,31 @@
           <button class="btn btn-default removeButton" id="remove_button" type="button">-</button>
         </span>
       </div>
-
-      <a href="https://twitter.com/intent/tweet" class="twitter-hashtag-button" hashtags="sick, yo" data-size="large" data-related="georgeisking">Tweet #Surveys</a>
-      <script>
-        !function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
-          if(!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + '://platform.twitter.com/widgets.js';
-            fjs.parentNode.insertBefore(js, fjs);
+      <div id="tweet_button">
+        <script>
+          var url_string = title;
+          url_string += "&";
+          for(var i = 0; i <= options.length - 1; i++) {
+            url_string += options[i];
+            if(i < options.length)
+              url_string += "&";
           }
-        }(document, 'script', 'twitter-wjs');
-      </script>
+          console.log(url_string);
+        </script>
+        
+        <a href="https://twitter.com/intent/tweet" class="twitter-hashtag-button" id="tweet" data-size="large" data-related="georgeisking">Tweet #Surveys</a>
+        <script>
+          !function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)) {
+              js = d.createElement(s);
+              js.id = id;
+              js.src = p + '://platform.twitter.com/widgets.js';
+              fjs.parentNode.insertBefore(js, fjs);
+            }
+          }(document, 'script', 'twitter-wjs');
+        </script>
+      </div>
     </form>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
