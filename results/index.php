@@ -57,7 +57,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="">
+          <a class="navbar-brand" href="../">
             <b style="color: #FFFFFF">#Surveys results for <?=$survey->name?></b>
           </a>
         </div>
@@ -122,7 +122,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="">
+          <a class="navbar-brand" href="../">
             <b style="color: #FFFFFF">#Surveys</b>
           </a>
         </div>

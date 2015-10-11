@@ -12,9 +12,9 @@
       $stmt = $db->prepare("SELECT `SurveyTag` FROM `Surveys` WHERE `SurveyID` = ?;");
       $stmt->bind_param("i", $surveyID);
       if($stmt->execute()){
+        $stmt->store_result();
         $stmt->bind_result($name);
         $stmt->fetch();
-        $stmt->store_result();
         $this->name = $name;
         $this->getOptions();
       }else{
