@@ -4,9 +4,6 @@
   global $hashtagRegex;
   $hashtagRegex = "/^[a-zA-Z0-9]*$/";
 
-  var_dump($_POST["options"]);
-  die();
-
   if(isset($_POST["title"]) && isset($_POST["options"]) &&
     strlen($_POST["title"]) > 0){
 
@@ -15,9 +12,6 @@
     require_once("../classes/option.php");
     require_once("../classes/survey.php");
     global $db;
-
-    var_dump($_POST["options"]);
-    die();
 
     if(validateOptions($_POST["options"]) && preg_match($hashtagRegex, substr($_POST["title"], 1))){
         $id = Survey::insertSurvey($_POST["title"], $_POST["options"]);

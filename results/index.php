@@ -17,6 +17,11 @@
     }
   }
   if($valid){
+    $message = $survey->name."? Tweet ";
+    foreach($survey->options as $o){
+      $message .= $o->name." ";
+    }
+    $message = urlencode($message);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +74,7 @@
     </div>
 
     <a id="tweet-btn" class="twitter-share-button"
-      href="https://twitter.com/intent/tweet?text=Check%20these%20results%20out"
+      href="https://twitter.com/intent/tweet?text=<?=$message?>"
       data-size="large">
     Share Results</a>
 
