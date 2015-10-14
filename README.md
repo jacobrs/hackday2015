@@ -1,7 +1,7 @@
 # hackday2015
 Project worked on at HackDay in 2015
 
-Demo: [here](tldr.me/zwrzz3q)
+Demo: [here](http://tldr.me/zwrzz3q)
 
 # Screenshots
 
